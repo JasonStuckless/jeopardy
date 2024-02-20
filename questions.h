@@ -1,9 +1,6 @@
-/*
- * Tutorial 4 Jeopardy Project for SOFE 3950U / CSCI 3020U: Operating Systems
+/* Tutorial 4 Jeopardy Project for SOFE 3950U: Operating Systems
  *
- * Copyright (C) 2015, <GROUP MEMBERS>
- * All rights reserved.
- *
+ * Group 14: Jason Stuckless, 100248154
  */
 #ifndef QUESTIONS_H_
 #define QUESTIONS_H_
@@ -18,9 +15,9 @@
 
 // List of 3 categories as array of strings
 static char categories[NUM_CATEGORIES][MAX_LEN] = {
-    "programming", 
-    "algorithms", 
-    "databases"
+    "Programming",
+    "Algorithms",
+    "Databases"
 };
 
 // Questions struct for each question
@@ -34,7 +31,7 @@ typedef struct {
 
 // An array of 12 questions (4 for each category), initialized in initialize_game
 // this may need to be a pointer if you want it set dynamically
-question questions[NUM_QUESTIONS];
+// MOVED TO questions.c
 
 // Initializes the array of questions for the game
 extern void initialize_game(void);
@@ -50,5 +47,11 @@ extern bool valid_answer(char *category, int value, char *answer);
 
 // Returns true if the question has already been answered
 extern bool already_answered(char *category, int value);
+
+// Returns true if the category exists
+extern bool category_exists(char *category);
+
+// Returns true if all the questions have been chosen
+extern bool questions_done();
 
 #endif /* QUESTIONS_H_ */
